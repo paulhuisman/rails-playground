@@ -1,0 +1,3 @@
+== README
+
+Ruby on Rails (v4) playground including HAML

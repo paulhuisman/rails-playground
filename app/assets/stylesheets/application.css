@@ -1,0 +1,91 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require bootstrap.min
+ *= require bootsy
+ */
+body,
+html {
+	background-color: #046380 !important;
+}
+iframe html,
+body.form-control {
+	background-color: #fff !important;
+}
+
+.outer {
+  display: table;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.middle {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.site-wrapper {
+	width:960px;
+	margin:20px auto;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	border-radius: 3px;
+	padding: 30px;
+	word-wrap: break-word;
+}
+h1,
+h2,
+h3,
+h4 {
+	font-family: 'Oswald', sans-serif !important;
+	color: #002F2F !important;
+}
+.copyright {
+	font-size:11px;
+	color:#ddd;
+	width:960px;
+	margin:1px auto 0 auto;
+	text-align:center;
+}
+
+.red {
+	color:red;
+}
+.green {
+	color:green;
+}
+
+ul.nav li a {
+	color: #046380;
+}
+
+/*
+ul.nav li {
+	float: left;
+	width: auto;
+	display: inline-block;
+	margin-right: 20px;
+}
+ul.nav li a {
+	padding: 0;
+}
+ul.nav li.active a {
+	text-decoration: underline;
+}*/
+
+.alert {
+	margin: 20px 0  0 0 !important;
+}

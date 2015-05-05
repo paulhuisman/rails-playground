@@ -1,0 +1,42 @@
+.site-wrapper {
+	font-family:Arial;
+	font-size:13px;
+}
+.edit_article {
+	p {
+		margin-bottom:18px;
+	}
+	#article_author_id {
+		min-width: 120px;
+	}
+}
+.form-control {
+	padding: 4px 6px !important;
+}
+.overview-list {
+	padding-left: 4px;
+}
+span.info {
+	font-weight: bold;
+	width:80px;
+	display:block;
+	float:left; 
+}
+ul.author-articles {
+	padding-left: 0;
+
+	> li {
+		list-style: none;
+	}
+
+	.date {
+		margin-bottom: 4px;
+		display:block;
+		font-style: italic;
+	}
+	.read-more {
+		margin-top: 4px;
+		display:inline-block;
+		width:auto;
+	}
+}

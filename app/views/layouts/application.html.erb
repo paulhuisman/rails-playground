@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Paul's Rails Playground</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<div class="outer">
+	<div class="middle">
+		<div class="site-wrapper">
+			<%= nav_links %>
+
+		  <% flash.each do |key, value| %>
+		    <div class="alert alert-<%= key %>"><%= value %></div>
+		  <% end %>
+		  
+			<%= yield %>
+		</div>
+		<div class="copyright">&copy; Paul Huisman 2015</div>
+	</div>
+</div>
+</body>
+</html>

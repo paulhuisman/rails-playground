@@ -1,0 +1,30 @@
+%h1 What's going on?
+
+%hr
+
+%table{:class => 'table table-striped'}
+  %thead
+    %tr
+      %th Title
+      %th Text
+      %th Category
+      %th Author
+      %th Created
+      %th{:colspan => 3} Actions
+  %tbody
+    - @articles.each do |article|
+      %tr
+        %td= link_to truncate(article.title, length: 23), article_path(article) 
+        %td= truncate(strip_tags(article.text), length: 34)
+        %td= article.category.blank?? '-' : article.category
+        %td= Author.find(article.author_id).name 
+        %td= article.created_at.to_formatted_s(:dutch_date)
+        %td= link_to 'View', article_path(article) 
+        %td= link_to 'Edit', edit_article_path(article)
+        %td= link_to 'Delete', article_path(article), method: :delete, data: { confirm: 'Are you sure you wanna delete this?' }, :class => "red"
+
+%hr
+
+= link_to '+ Add a new article', new_article_path, :class => "btn btn-primary"
+
+= will_paginate @articles 

@@ -1,0 +1,52 @@
+<h1>
+  <%= @article.title %>
+</h1>
+ 
+<p>
+  <%= @article.text.html_safe %>
+</p>
+ 
+<% if (@article.category) then %>
+  <p>
+    <span class="info">Category:</span> 
+    <%= @article.category %>
+  </p>
+<% end %>
+ 
+<% if (@article.author_id) then %>
+  <p>
+  	<span class="info">Author:</span> 
+    <%= Author.find(@article.author_id).name %>
+  </p>
+<% end %>
+
+<hr />
+
+<h4>Comments</h4>
+<div id="comments">
+  <% @article.comments.each do |comment| %>
+    <% if comment.published == 1 %>
+      <p>
+        <strong><%= comment.commenter %></strong> (<%= comment.created_at.to_formatted_s(:dutch_date) %>)<br />
+        <%= comment.body %>
+      </p>
+    <% end %>
+  <% end %>
+</div>
+
+<%= form_for([@article, @article.comments.build]) do |f| %>
+  <p>
+    <%= f.label 'Your name' %><br>
+    <%= f.text_field :commenter, :class => "form-control" %>
+  </p>
+  <p>
+    <%= f.label 'Text' %><br>
+    <%= f.text_area :body, :class => "form-control", :rows => "4" %>
+  </p>
+  <p>
+    <%= f.submit 'Place comment' %>
+  </p>
+<% end %>
+ 
+<%= link_to 'Back to articles list', articles_path %>
+| <%= link_to 'Edit article', edit_article_path(@article) %>
