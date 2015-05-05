@@ -11,7 +11,7 @@ gem 'haml', '~> 4.0.0'
 
 gem 'bootsy'
 
-gem 'paperclip'
+gem 'paperclip', "~> 4.2"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

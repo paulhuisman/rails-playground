@@ -22,4 +22,5 @@
 /*.sublime-*
 
 /public/assets/*
+/public/system/*
 /public/spree/*

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150505091709) do
+ActiveRecord::Schema.define(version: 20150505134416) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -26,10 +26,14 @@ ActiveRecord::Schema.define(version: 20150505091709) do
   add_index "articles", ["author_id"], name: "index_articles_on_author_id", using: :btree
 
   create_table "authors", force: true do |t|
-    t.string "name"
-    t.text   "biography"
-    t.string "birthyear"
-    t.text   "fav_subjects"
+    t.string   "name"
+    t.text     "biography"
+    t.string   "birthyear"
+    t.text     "fav_subjects"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "bootsy_image_galleries", force: true do |t|

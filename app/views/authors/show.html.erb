@@ -1,31 +1,35 @@
-<h1>
-  <%= @author.name %>
-</h1>
- 
-<p>
-  <%= @author.biography %>
-</p>
+<div class="author-detail">
+  <% unless @author.avatar.url(:thumb).nil? %>
+    <div class="image-wrapper">
+      <%= image_tag @author.avatar.url(:thumb) %>
+    </div>
+  <% end %>
 
-<p>
-  <%= @author.birthyear %>
-</p>
+  <h1>
+    <%= @author.name %>
+  </h1>
 
-<hr />
-<% unless @articles.nil? %>
-	<h4>Articles by user</h4>
-	<hr />
-  <ul class="author-articles">
-  	<% @articles.each do |article| %>
-      <li>
-        <h2><%= link_to article.title, article_path(article.id) %></h2>
-        <div class="date"><%= article.created_at.to_formatted_s(:short) %></div>
-        <%= truncate(strip_tags(article.text), length: 248)  %>
-        <br /><%= link_to 'Read more', article_path(article.id), :class => 'read-more' %>
-      </li>
-      <hr />
-  	<% end %>
-  </ul>
-<% end %>
+  <p>
+    <%= @author.biography %>
+  </p>
 
-<%= link_to 'Back to author list', authors_path %>
-| <%= link_to 'Edit', edit_author_path(@author) %>
+  <hr class="clear"/>
+  <% unless @articles.nil? %>
+  	<h4>Articles by user</h4>
+  	<hr />
+    <ul class="author-articles">
+    	<% @articles.each do |article| %>
+        <li>
+          <h2><%= link_to article.title, article_path(article.id) %></h2>
+          <div class="date"><%= article.created_at.to_formatted_s(:short) %></div>
+          <%= truncate(strip_tags(article.text), length: 248)  %>
+          <br /><%= link_to 'Read more', article_path(article.id), :class => 'read-more' %>
+        </li>
+        <hr />
+    	<% end %>
+    </ul>
+  <% end %>
+
+  <%= link_to 'Back to author list', authors_path %>
+  | <%= link_to 'Edit', edit_author_path(@author) %>
+</div>

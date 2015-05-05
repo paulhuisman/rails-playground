@@ -72,20 +72,11 @@ ul.nav li a {
 	color: #046380;
 }
 
-/*
-ul.nav li {
-	float: left;
-	width: auto;
-	display: inline-block;
-	margin-right: 20px;
-}
-ul.nav li a {
-	padding: 0;
-}
-ul.nav li.active a {
-	text-decoration: underline;
-}*/
-
 .alert {
 	margin: 20px 0  0 0 !important;
+}
+
+.clear {
+	overflow: hidden;
+	clear: both;
 }
