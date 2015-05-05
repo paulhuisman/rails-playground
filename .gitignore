@@ -1,0 +1,25 @@
+# Ignore bundler config.
+/.bundle
+/.gems
+
+# Ignore the default SQLite database.
+/db/*.sqlite3
+/db/*.sqlite3-journal
+
+# Ignore all logfiles and tempfiles.
+/log/*.log
+/tmp
+
+# Ignore database.yml
+/config/database.yml
+/config/stores.yml
+/config/adyen.yml
+
+# Ignore vendor ruby
+/vendor/ruby
+
+# Ignore sublime project files
+/*.sublime-*
+
+/public/assets/*
+/public/spree/*
