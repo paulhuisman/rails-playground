@@ -89,3 +89,18 @@ ul.nav li a {
 	overflow: hidden;
 	clear: both;
 }
+
+form#new_user input[type="email"],
+form#new_user input[type="password"] {
+	width: 50%;
+}
+form#new_user input[type="submit"] {
+	margin: 12px 0;
+}
+.alert.alert-alert {
+	color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  clear: both;
+  margin-top: 50px;
+}

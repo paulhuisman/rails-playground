@@ -9,7 +9,9 @@
     <%= @author.name %>
   </h1>
 
-  <%= link_to 'Edit this author', edit_author_path(@author), :class => 'edit-link', :title => 'Edit author' %>
+  <% unless current_user.blank? %>
+    <%= link_to 'Edit this author', edit_author_path(@author), :class => 'edit-link', :title => 'Edit author' %>
+  <% end %>
   <p>
     <%= @author.biography %>
   </p>
@@ -23,9 +25,9 @@
         <div class="col-sm-6 col-md-4">
           <div class="thumbnail">
             <% unless article.image_file_name.nil? %>
-              <%= image_tag article.image.url(:playground_overiew) %>
+              <%= link_to image_tag(article.image.url(:playground_overiew)), article_path(article.id) %>
             <% else %>
-              <div class="greyed-image"></div>
+              <a href="<%= article_path(article.id) %>"><div class="greyed-image"></div></a>
             <% end %>
             <div class="caption">
              <h2><%= link_to article.title, article_path(article.id) %></h2>

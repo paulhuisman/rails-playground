@@ -12,7 +12,9 @@
 	<div class="middle">
 		<div class="site-wrapper">
 			<div class="site-name">Paul's Rails Playground</div>
-			<%= nav_links %>
+			<% unless current_user.blank? %>
+				<%= nav_links %>
+			<% end %>
 
 		  <% flash.each do |key, value| %>
 		    <div class="alert alert-<%= key %>"><%= value %></div>

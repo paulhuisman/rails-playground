@@ -1,4 +1,6 @@
 class AuthorsController < ApplicationController
+  before_action :authenticate_user!, except: [:show]
+  
   def new
     @author = Author.new
   end
@@ -22,6 +24,7 @@ class AuthorsController < ApplicationController
   end
 
   def show
+
     @author = Author.find(params[:id])
     @author_articles = Article.where(author_id: params[:id]).all.paginate(:page => params[:page], :per_page => 6)
   end
