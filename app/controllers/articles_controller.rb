@@ -5,12 +5,16 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    #@articles = Article.all
-    @articles = Article.all.paginate(:page => params[:page], :per_page => 7)
+    @articles = Article.all.reorder('created_at DESC').paginate(:page => params[:page], :per_page => 7)
+    unless current_user.nil?
+      render :index
+    else
+      render :list
+    end
   end
 
   def edit
-    @article = Article.find(params[:id])
+    @article = Article.friendly.find(params[:id])
     @authors = Author.all
   end
    
@@ -27,11 +31,11 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
+    @article = Article.friendly.find(params[:id])
   end
    
   def update
-    @article = Article.find(params[:id])
+    @article = Article.friendly.find(params[:id])
    
     if @article.update(article_params)
       redirect_to @article
@@ -42,7 +46,7 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article = Article.find(params[:id])
+    @article = Article.friendly.find(params[:id])
     @article.destroy
    
     redirect_to articles_path

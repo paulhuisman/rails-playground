@@ -66,10 +66,13 @@ h5 {
 	font-size:11px;
 	color:#ddd;
 	width:960px;
-	margin:1px auto 0 auto;
+	margin:1px auto 15px auto;
 	text-align:center;
 }
-
+.copyright a,
+.copyright a:hover {
+	color:#ddd;
+}
 .red {
 	color:red;
 }

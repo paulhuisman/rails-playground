@@ -69,6 +69,8 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.2.0)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
     haml (4.0.5)
       tilt
     hike (1.2.3)
@@ -169,6 +171,7 @@ DEPENDENCIES
   bootsy
   coffee-rails (~> 4.0.0)
   devise
+  friendly_id (~> 5.1.0)
   haml (~> 4.0.0)
   jbuilder (~> 2.0)
   jquery-rails
