@@ -6,7 +6,9 @@ class CommentsController < ApplicationController
   end
  
   def index
-    @comments = Comment.all.reorder('created_at DESC').paginate(:page => params[:page], :per_page => 8)
+    @comments = Comment.all.reorder('created_at DESC').paginate(:page => params[:page], :per_page => 7)
+    @all_comment_count = @comments.count
+    @comments_published_percentage = (Comment.where(published: 1).count * 100 ) / @all_comment_count 
   end
 
   def edit

@@ -10,6 +10,8 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'haml', '~> 4.0.0'
 
 gem 'bootsy'
+gem 'bootbox-rails', '~>0.4'
+gem 'bootstrap-modal-rails'
 
 gem 'paperclip', "~> 4.2"
 

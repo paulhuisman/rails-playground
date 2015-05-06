@@ -34,6 +34,9 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootbox-rails (0.4.0)
+    bootstrap-modal-rails (2.2.5)
+      railties (>= 3.1)
     bootsy (2.0.9)
       carrierwave (~> 0.10.0)
       mini_magick (~> 3.7.0)
@@ -151,6 +154,8 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
+  bootbox-rails (~> 0.4)
+  bootstrap-modal-rails
   bootsy
   coffee-rails (~> 4.0.0)
   haml (~> 4.0.0)

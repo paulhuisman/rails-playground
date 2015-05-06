@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap.min
 //= require bootsy
+//= require bootbox
 //= require turbolinks
 //= require_tree .
 
@@ -21,6 +22,14 @@
 
   $('.wysihtml5').each(function(i, elem) {
     $(elem).wysihtml5();
+  });
+
+
+  $('.confirm-delete').click(function(e){ 
+  	alert('WTF');
+  	return false;
+  	e.preventDefault();
+  	BootstrapDialog.confirm('Hi Apple, are you sure?');
   });
 
 })
