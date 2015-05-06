@@ -15,11 +15,9 @@
  *= require bootstrap.min
  *= require bootsy
  */
-body,
-html {
+body {
 	background-color: #046380 !important;
 }
-iframe html,
 body.form-control {
 	background-color: #fff !important;
 }
@@ -44,6 +42,7 @@ body.form-control {
 	border-radius: 3px;
 	border-radius: 3px;
 	padding: 30px;
+	min-height: 560px;
 	word-wrap: break-word;
 }
 h1,

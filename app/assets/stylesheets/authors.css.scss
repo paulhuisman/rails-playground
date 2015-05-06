@@ -1,7 +1,13 @@
 .image-wrapper {
 	float:left;
-	margin: 6px 10px 12px 0;
+	margin: 6px 15px 12px 0;
 }
+.article-detail h1,
 .author-detail h1 {
 	padding-top: 6px;
+}
+.greyed-image {
+	width:269px;
+	height:200px;
+	background-color:#eee;
 }

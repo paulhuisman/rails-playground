@@ -2,11 +2,11 @@ class CommentsController < ApplicationController
   def create
     @article = Article.find(params[:article_id])
     @comment = @article.comments.create(comment_params)
-    redirect_to article_path(@article)
+    redirect_to article_path(@article), :flash => { :success => "Thanks for your comment. We will publish it after validation." }
   end
  
   def index
-    @comments = Comment.all.reorder('created_at DESC')
+    @comments = Comment.all.reorder('created_at DESC').paginate(:page => params[:page], :per_page => 8)
   end
 
   def edit

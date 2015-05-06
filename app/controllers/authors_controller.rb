@@ -23,7 +23,7 @@ class AuthorsController < ApplicationController
 
   def show
     @author = Author.find(params[:id])
-    @articles = Article.where(author_id: params[:id]).to_a
+    @author_articles = Article.where(author_id: params[:id]).all.paginate(:page => params[:page], :per_page => 6)
   end
    
   def update

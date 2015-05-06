@@ -1,5 +1,5 @@
 <div class="author-detail">
-  <% unless @author.avatar.url(:thumb).nil? %>
+  <% unless @author.avatar_file_name.nil? %>
     <div class="image-wrapper">
       <%= image_tag @author.avatar.url(:thumb) %>
     </div>
@@ -9,27 +9,37 @@
     <%= @author.name %>
   </h1>
 
+  <%= link_to 'Edit this author', edit_author_path(@author), :class => 'edit-link', :title => 'Edit author' %>
   <p>
     <%= @author.biography %>
   </p>
 
   <hr class="clear"/>
-  <% unless @articles.nil? %>
+  <% unless @author_articles.nil? %>
   	<h4>Articles by user</h4>
-  	<hr />
-    <ul class="author-articles">
-    	<% @articles.each do |article| %>
-        <li>
-          <h2><%= link_to article.title, article_path(article.id) %></h2>
-          <div class="date"><%= article.created_at.to_formatted_s(:short) %></div>
-          <%= truncate(strip_tags(article.text), length: 248)  %>
-          <br /><%= link_to 'Read more', article_path(article.id), :class => 'read-more' %>
-        </li>
-        <hr />
-    	<% end %>
-    </ul>
+    <hr />
+    <div class="row">
+      <% @author_articles.each do |article| %>
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <% unless article.image_file_name.nil? %>
+              <%= image_tag article.image.url(:playground) %>
+            <% else %>
+              <div class="greyed-image"></div>
+            <% end %>
+            <div class="caption">
+             <h2><%= link_to article.title, article_path(article.id) %></h2>
+              <p><%= truncate(strip_tags(article.text), length: 34) %></p>
+              <p><a href="<%= article_path(article) %>" class="btn btn-primary" role="button">Read more</a></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <%= will_paginate @author_articles, renderer: BootstrapPagination::Rails %>
   <% end %>
 
-  <%= link_to 'Back to author list', authors_path %>
-  | <%= link_to 'Edit', edit_author_path(@author) %>
+  <div class="quick-links">
+    <%= link_to '< Back to author list', authors_path %>
+  </div>
 </div>
