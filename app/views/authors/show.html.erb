@@ -23,7 +23,7 @@
         <div class="col-sm-6 col-md-4">
           <div class="thumbnail">
             <% unless article.image_file_name.nil? %>
-              <%= image_tag article.image.url(:playground) %>
+              <%= image_tag article.image.url(:playground_overiew) %>
             <% else %>
               <div class="greyed-image"></div>
             <% end %>

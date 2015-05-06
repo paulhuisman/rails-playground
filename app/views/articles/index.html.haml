@@ -17,7 +17,7 @@
         %td= link_to truncate(article.title, length: 23), article_path(article) 
         %td= truncate(strip_tags(article.text), length: 34)
         %td= article.category.blank?? '-' : article.category
-        %td= Author.find(article.author_id).name 
+        %td= link_to(Author.find(article.author_id).name, author_path(Author.find(article.author_id)))
         %td= article.created_at.to_formatted_s(:dutch_date)
         %td= link_to 'View', article_path(article) 
         %td= link_to 'Edit', edit_article_path(article)
