@@ -6,7 +6,6 @@
   %thead
     %tr
       %th Name
-      %th Bio
       %th Fav Subjects
       %th Birthyear
       %th Article count
@@ -15,7 +14,6 @@
     - @authors.each do |author|
       %tr
         %td= link_to truncate(author.name, length: 23), author_path(author) 
-        %td= truncate(strip_tags(author.biography), length: 28)
         %td= truncate(strip_tags(author.fav_subjects), length: 28)
         %td= author.birthyear
         %td= Article.where(author_id: author.id).count
@@ -25,4 +23,4 @@
 
 %hr
 
-= link_to '+ Add a new author', new_author_path, :class => "btn btn-primary"
+= link_to 'Add a new author', new_author_path, :class => "btn btn-primary"

@@ -1,13 +1,16 @@
-%h1 What's going on?
+%div{:class => 'front-page'}
+	%h1 What's going on?
 
-%hr
+	%hr
 
-%div{:class => 'articles-wrapper'}
-  - @articles.each do |article|
-    %div{:class => 'article'}
-      %h1= link_to truncate(article.title, length: 23), article_path(article) 
-      %div{:class => 'meta-info'}= article.created_at.to_formatted_s(:dutch_date) + ' | by ' + Author.find(article.author_id).name
-      %p= truncate(strip_tags(article.text), length: 234)
-      %hr
+	%div{:class => 'articles-wrapper user-view'}
+		- @articles.each do |article|
+			%div{:class => 'article'}
+			- unless article.image_file_name.nil?
+				%div{:class => 'image-left'}= link_to image_tag(article.image.url(:list_thumb)), article_path(article)
+			%h2= link_to truncate(article.title, length: 23), article_path(article) 
+			%div{:class => 'meta-info'}= article.created_at.to_formatted_s(:dutch_date) + ' | by ' + Author.find(article.author_id).name
+			%p= truncate(strip_tags(article.text), length: 374) + ' ' + link_to('Read more', article_path(article))
+			%hr{:class => 'clear'}
 
-= will_paginate @articles, renderer: BootstrapPagination::Rails 
+	= will_paginate @articles, renderer: BootstrapPagination::Rails 

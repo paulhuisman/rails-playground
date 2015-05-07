@@ -1,25 +1,8 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- *= require bootstrap.min
- *= require bootsy
- */
 body {
 	background-color: #046380 !important;
-}
-body.form-control {
-	background-color: #fff !important;
+  &.form-control {
+		background-color: #fff !important;
+	}
 }
 
 .outer {
@@ -41,10 +24,11 @@ body.form-control {
 	border: 1px solid #ddd;
 	border-radius: 3px;
 	border-radius: 3px;
-	padding: 30px;
+	padding: 25px 20px;
 	min-height: 625px;
 	word-wrap: break-word;
 }
+
 h1,
 h2,
 h3,
@@ -60,6 +44,12 @@ h5 {
 	font-size: 19px;
 	color:#bbb;
 	display: block;
+	
+	a,
+	a:hover {
+		text-decoration: none;
+		color:#bbb;
+	}
 }
 
 .copyright {
@@ -93,17 +83,26 @@ ul.nav li a {
 	clear: both;
 }
 
-form#new_user input[type="email"],
-form#new_user input[type="password"] {
-	width: 50%;
+form#new_user {
+	input[type="email"],
+  input[type="password"] {
+		width: 50%;
+	}
+	input[type="submit"] {
+		margin: 12px 0;
+	}
 }
-form#new_user input[type="submit"] {
-	margin: 12px 0;
-}
+
 .alert.alert-alert {
 	color: #a94442;
   background-color: #f2dede;
   border-color: #ebccd1;
   clear: both;
   margin-top: 50px;
+}
+
+.btn {
+	font-family: 'Oswald', sans-serif !important;
+	font-weight: 300 !important;
+	font-size: 16px !important;
 }

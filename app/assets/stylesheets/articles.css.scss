@@ -2,6 +2,11 @@
 	font-family:Arial;
 	font-size:13px;
 }
+.image-left {
+	float: left;
+	width: 220px;
+	margin: 0 20px 20px 0;
+}
 .edit_article {
 	p {
 		margin-bottom:18px;
@@ -41,7 +46,7 @@ ul.author-articles {
 	}
 }
 .wide-image {
-	margin:15px 0;
+	margin:8px 0 20px 0;
 }
 .pagination {
 	margin:6px 0 6px 0 !important;
