@@ -22,7 +22,13 @@
 		  
 			<%= yield %>
 		</div>
-		<div class="copyright">&copy; Paul Huisman 2015 - <a href="/login">Login</a></div>
+		<div class="copyright">&copy; Paul Rail's Playground - 
+			<% unless current_user.blank? %>
+				currently logged in as <%= current_user.email %>
+			<% else %>
+				<a href="/login">Login</a>
+			<% end %>
+		</div>
 	</div>
 </div>
 </body>
